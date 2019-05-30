@@ -48,5 +48,33 @@ namespace Exercises
             }
             Console.WriteLine($"The factorial of {number} is: {factorial}");
         }
+
+        // 04 - Write a program that picks a random number between 1 and 10.Give the user 4 chances to guess the number.If the user guesses the number, display “You won"; otherwise, display “You lost". (To make sure the program is behaving correctly, you can display the secret number on the console first.)
+        public static void GuessTheNumber()
+        {
+            Console.WriteLine("Guess a number between 1 and 10");
+            Console.WriteLine("You get four guesses");
+            Random random = new Random();
+            int randomNumber = random.Next(1,11);
+            int guesses = 4;
+            for (var i = guesses; i >= 1; i--)
+            {
+               string input = Console.ReadLine();
+
+                if (Convert.ToInt32(input) == randomNumber)
+                {
+                    Console.WriteLine("You won!");
+                    break;
+                }
+                else if (i == 1)
+                {
+                    Console.WriteLine("You lost!");
+                }
+                else
+                {
+                    Console.WriteLine($"You have {i - 1} guesses left");
+                }
+            }
+        }
     }
 }
